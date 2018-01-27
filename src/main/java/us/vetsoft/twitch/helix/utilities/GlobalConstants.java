@@ -1,4 +1,4 @@
-package us.vetsoft.twitch.helix;
+package us.vetsoft.twitch.helix.utilities;
 
 import java.util.ArrayList;
 import java.util.List;
