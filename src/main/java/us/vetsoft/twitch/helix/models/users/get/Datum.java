@@ -2,7 +2,6 @@ package us.vetsoft.twitch.helix.models.users.get;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import jdk.internal.jline.internal.Nullable;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -38,7 +37,6 @@ public class Datum {
     private Integer viewCount;
     @SerializedName("email")
     @Expose
-    @Nullable
     private String email = null;
 
     public String getId() {
