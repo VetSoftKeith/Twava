@@ -1,9 +1,9 @@
 package us.vetsoft.twitch.helix.resources;
 
-import us.vetsoft.twitch.helix.utilities.StreamQuery;
+import us.vetsoft.twitch.helix.utilities.QueryStringBuilder;
 
 public class GetStreamsResource {
-    public GetStreamsResource(StreamQuery streamQuery, String clientId, String appToken) {
+    public GetStreamsResource(QueryStringBuilder streamQuery, String clientId, String appToken) {
 
     }
 }

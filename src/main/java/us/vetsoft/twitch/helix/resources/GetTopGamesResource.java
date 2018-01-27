@@ -1,9 +1,9 @@
 package us.vetsoft.twitch.helix.resources;
 
-import us.vetsoft.twitch.helix.utilities.TopGameQuery;
+import us.vetsoft.twitch.helix.utilities.QueryStringBuilder;
 
 public class GetTopGamesResource {
-    public GetTopGamesResource(TopGameQuery topGameQuery, String clientId, String appToken) {
+    public GetTopGamesResource(QueryStringBuilder topGameQuery, String clientId, String appToken) {
 
     }
 }

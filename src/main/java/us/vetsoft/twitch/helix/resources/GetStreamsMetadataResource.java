@@ -1,9 +1,9 @@
 package us.vetsoft.twitch.helix.resources;
 
-import us.vetsoft.twitch.helix.utilities.StreamQuery;
+import us.vetsoft.twitch.helix.utilities.QueryStringBuilder;
 
 public class GetStreamsMetadataResource {
-    public GetStreamsMetadataResource(StreamQuery streamQuery, String clientId, String appToken) {
+    public GetStreamsMetadataResource(QueryStringBuilder query, String clientId, String appToken) {
 
     }
 }

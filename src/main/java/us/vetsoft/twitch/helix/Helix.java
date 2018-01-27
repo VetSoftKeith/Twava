@@ -1,10 +1,7 @@
 package us.vetsoft.twitch.helix;
 
 import us.vetsoft.twitch.helix.resources.*;
-import us.vetsoft.twitch.helix.utilities.GetUserFollowsQuery;
-import us.vetsoft.twitch.helix.utilities.GetUsersQuery;
-import us.vetsoft.twitch.helix.utilities.StreamQuery;
-import us.vetsoft.twitch.helix.utilities.TopGameQuery;
+import us.vetsoft.twitch.helix.utilities.QueryStringBuilder;
 
 import java.util.Collection;
 
@@ -148,14 +145,14 @@ public class Helix {
      * order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave
      * streams.
      *
-     * @param streamQuery A {@link StreamQuery} query builder object.
+     * @param query A {@link QueryStringBuilder} query builder object.
      *
      * @return GetStreamsResource
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-streams">Get Streams</a>
      */
-    public GetStreamsResource getStreams(StreamQuery streamQuery) {
-        return new GetStreamsResource(streamQuery, getClientId(), getAppToken());
+    public GetStreamsResource getStreams(QueryStringBuilder query) {
+        return new GetStreamsResource(query, getClientId(), getAppToken());
     }
 
     /**
@@ -165,27 +162,27 @@ public class Helix {
      * <p>
      * This endpoint has a global rate limit, across all callers.
      *
-     * @param streamQuery A {@link StreamQuery} query builder object.
+     * @param streamQuery A {@link QueryStringBuilder} query builder object.
      *
      * @return GetStreamsMetadataResource
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-streams-metadata">Get Streams Metadata</a>
      */
-    public GetStreamsMetadataResource getStreamsMetadata(StreamQuery streamQuery) {
+    public GetStreamsMetadataResource getStreamsMetadata(QueryStringBuilder streamQuery) {
         return new GetStreamsMetadataResource(streamQuery, getClientId(), getAppToken());
     }
 
     /**
      * Gets games sorted by number of current viewers on Twitch, most popular first.
      *
-     * @param topGameQuery A {@link TopGameQuery} query builder object.
+     * @param query A {@link QueryStringBuilder} query builder object.
      *
      * @return GetTopGamesResource
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-top-games">Get Top Games</a>
      */
-    public GetTopGamesResource getTopGames(TopGameQuery topGameQuery) {
-        return new GetTopGamesResource(topGameQuery, getClientId(), getAppToken());
+    public GetTopGamesResource getTopGames(QueryStringBuilder query) {
+        return new GetTopGamesResource(query, getClientId(), getAppToken());
     }
 
     /**
@@ -195,14 +192,14 @@ public class Helix {
      * Optional scope: <code>user:read:email</code>. If this is provided, the response includes the user's email
      * address.
      *
-     * @param getUsersQuery A {@link GetUsersQuery} query builder object.
+     * @param query A {@link QueryStringBuilder} query builder object.
      *
      * @return GetUsersResource
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-users">Get Users</a>
      */
-    public GetUsersResource getUsers(GetUsersQuery getUsersQuery) {
-        return new GetUsersResource(getUsersQuery, getClientId(), getAppToken(), getUserToken());
+    public GetUsersResource getUsers(QueryStringBuilder query) {
+        return new GetUsersResource(query, getClientId(), getAppToken(), getUserToken());
     }
 
     /**
@@ -210,14 +207,14 @@ public class Helix {
      * recent follow first. This can return information like "who is lirik following," "who is following lirik," or "is
      * user X following user Y."
      *
-     * @param getUserFollowsQuery A {@link GetUserFollowsQuery} query builder object.
+     * @param query A {@link QueryStringBuilder} query builder object.
      *
      * @return GetUsersFollowsResource
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-users-follows">Get Users Follows</a>
      */
-    public GetUsersFollowsResource getUsersFollows(GetUserFollowsQuery getUserFollowsQuery) {
-        return new GetUsersFollowsResource(getUserFollowsQuery, getClientId(), getAppToken());
+    public GetUsersFollowsResource getUsersFollows(QueryStringBuilder query) {
+        return new GetUsersFollowsResource(query, getClientId(), getAppToken());
     }
 
     /**

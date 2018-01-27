@@ -1,9 +1,9 @@
 package us.vetsoft.twitch.helix.resources;
 
-import us.vetsoft.twitch.helix.utilities.GetUsersQuery;
+import us.vetsoft.twitch.helix.utilities.QueryStringBuilder;
 
 public class GetUsersResource {
-    public GetUsersResource(GetUsersQuery getUsersQuery, String clientId, String appToken, String userToken) {
+    public GetUsersResource(QueryStringBuilder getUsersQuery, String clientId, String appToken, String userToken) {
 
     }
 }
