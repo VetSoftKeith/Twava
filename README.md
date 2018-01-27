@@ -19,5 +19,8 @@ WebHooks).
 * Twitch WebHooks
 
 ## Contributing
-If you are interested in contributing to this project, please contact me on Discord in the Twitch API guild 
-@Ague Mort#9036.
+If you are interested in contributing to this project, please contact me ([Ague Mort](https://github.com/keesh7663)) at one of the following places:
+
+[Twitch Desktop App - TwitchDev](https://invite.twitch.tv/5WQn) - Primary
+
+[Twitch API Discord guild](https://discord.gg/gQsnAjV) - Secondary
