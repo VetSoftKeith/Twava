@@ -56,6 +56,20 @@ public class QueryStringBuilder {
         this.toId = toId;
     }
 
+    /**
+     * Sets the <code>user_id</code> variable given all tests are passed first.  You are able to pass only one of these
+     * variable types at a time in a query string.
+     * <p>
+     * <list>
+     * <li><code>game_id</code></li>
+     * <li><code>community_id</code></li>
+     * <li><code>user_id</code></li>
+     * <li><code>user_login</code></li>
+     * <li><code>language</code></li>
+     * </list>
+     *
+     * @param userIds Collection of <code>user_id</code> to pass to the query string.
+     */
     public void setUserIds(Collection<String> userIds) {
         if (!this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
@@ -66,6 +80,20 @@ public class QueryStringBuilder {
         this.userIds = userIds;
     }
 
+    /**
+     * Sets the <code>user_login</code> variable given all tests are passed first.  You are able to pass only one of
+     * these variable types at a time in a query string.
+     * <p>
+     * <list>
+     * <li><code>game_id</code></li>
+     * <li><code>community_id</code></li>
+     * <li><code>user_id</code></li>
+     * <li><code>user_login</code></li>
+     * <li><code>language</code></li>
+     * </list>
+     *
+     * @param userLogins Collection of <code>user_login</code> to pass to the query string.
+     */
     public void setUserLogins(Collection<String> userLogins) {
         if (!this.userIds.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
@@ -80,6 +108,20 @@ public class QueryStringBuilder {
         this.type = type;
     }
 
+    /**
+     * Sets the <code>community_id</code> variable given all tests are passed first.  You are able to pass only one of
+     * these variable types at a time in a query string.
+     * <p>
+     * <list>
+     * <li><code>game_id</code></li>
+     * <li><code>community_id</code></li>
+     * <li><code>user_id</code></li>
+     * <li><code>user_login</code></li>
+     * <li><code>language</code></li>
+     * </list>
+     *
+     * @param communityIds Collection of <code>community_id</code> to pass to the query string.
+     */
     public void setCommunityIds(Collection<String> communityIds) {
         if (!this.gameIds.isEmpty() || !this.language.isEmpty() || !this.userIds.isEmpty() || !this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
@@ -90,6 +132,20 @@ public class QueryStringBuilder {
         this.communityIds = communityIds;
     }
 
+    /**
+     * Sets the <code>game_id</code> variable given all tests are passed first.  You are able to pass only one of these
+     * variable types at a time in a query string.
+     * <p>
+     * <list>
+     * <li><code>game_id</code></li>
+     * <li><code>community_id</code></li>
+     * <li><code>user_id</code></li>
+     * <li><code>user_login</code></li>
+     * <li><code>language</code></li>
+     * </list>
+     *
+     * @param gameIds Collection of <code>game_id</code> to pass to the query string.
+     */
     public void setGameIds(Collection<String> gameIds) {
         if (!this.communityIds.isEmpty() || !this.language.isEmpty() || !this.userIds.isEmpty() || !this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
@@ -100,6 +156,20 @@ public class QueryStringBuilder {
         this.gameIds = gameIds;
     }
 
+    /**
+     * Sets the <code>language</code> variable given all tests are passed first.  You are able to pass only one of these
+     * variable types at a time in a query string.
+     * <p>
+     * <list>
+     * <li><code>game_id</code></li>
+     * <li><code>community_id</code></li>
+     * <li><code>user_id</code></li>
+     * <li><code>user_login</code></li>
+     * <li><code>language</code></li>
+     * </list>
+     *
+     * @param language Collection of <code>language</code> to pass in the query string.
+     */
     public void setLanguage(Collection<String> language) {
         if (!this.gameIds.isEmpty() || !this.communityIds.isEmpty() || !this.userIds.isEmpty() || !this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());

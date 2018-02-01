@@ -7,13 +7,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Verify's and formats the passed data before sending it to okhttp
+ * Verify's and formats the passed data before sending it to OkHttp
  */
 public class HttpRequestBuilder {
     private URL url;
     private String query;
 
-    public HttpRequestBuilder(String endpoint, QueryString query) {
+    HttpRequestBuilder(String endpoint, QueryString query) {
         setUrl(endpoint);
         setQuery(query);
     }
@@ -29,12 +29,13 @@ public class HttpRequestBuilder {
     /**
      * Parse the requested endpoint into a valid {@link URL} for {@link HttpRequest}.
      *
+     * TODO: Clean this up and make is easier to extend upon
+     *
      * @param endpoint The endpoint on Twitch API.
      */
     private void setUrl(String endpoint) {
         URL urlCheck = null;
 
-        // TODO: Make this cleaner
         try {
             switch (endpoint) {
                 case "/entitlements/upload":

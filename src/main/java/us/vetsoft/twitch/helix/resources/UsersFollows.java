@@ -21,7 +21,7 @@ public class UsersFollows {
      * @param appToken The optional Application Token passed in from {@link us.vetsoft.twitch.helix.Helix}.
      */
     public UsersFollows(QueryStringBuilder getUsersQuery, String clientId, String appToken) {
-        sendToUser(new HttpRequest("/users", getUsersQuery.build(), clientId, appToken, null).get());
+        sendToApplication(new HttpRequest("/users", getUsersQuery.build(), clientId, appToken, null).get());
     }
 
     /**
@@ -29,7 +29,7 @@ public class UsersFollows {
      *
      * @param request The finished {@link HttpRequest} object.
      */
-    private void sendToUser(HttpRequest request) {
+    private void sendToApplication(HttpRequest request) {
         Gson gson = new Gson();
         JsonObject responseJson = new JsonParser().parse(request.getBody()).getAsJsonObject();
         setFollows(gson.fromJson(responseJson, Follows.class));

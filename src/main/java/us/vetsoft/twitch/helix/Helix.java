@@ -145,7 +145,7 @@ public class Helix {
      * order. Across multiple pages of results, there may be duplicate or missing streams, as viewers join and leave
      * streams.
      *
-     * @param query A {@link QueryStringBuilder} query builder object.
+     * @param query A {@link QueryStringBuilder QueryStringBuilder} query builder object.
      *
      * @return GetStreamsResource
      *
@@ -162,7 +162,7 @@ public class Helix {
      * <p>
      * This endpoint has a global rate limit, across all callers.
      *
-     * @param streamMetaQuery A {@link QueryStringBuilder} query builder object.
+     * @param streamMetaQuery A {@link QueryStringBuilder QueryStringBuilder} query builder object.
      *
      * @return GetStreamsMetadataResource
      *
@@ -175,7 +175,7 @@ public class Helix {
     /**
      * Gets games sorted by number of current viewers on Twitch, most popular first.
      *
-     * @param topGamesQuery A {@link QueryStringBuilder} query builder object.
+     * @param topGamesQuery A {@link QueryStringBuilder QueryStringBuilder} query builder object.
      *
      * @return GetTopGamesResource
      *
@@ -192,7 +192,7 @@ public class Helix {
      * Optional scope: <code>user:read:email</code>. If this is provided, the response includes the user's email
      * address.
      *
-     * @param query A {@link QueryStringBuilder} query builder object.
+     * @param query A {@link QueryStringBuilder QueryStringBuilder} query builder object.
      *
      * @return GetUsersResource
      *
@@ -207,7 +207,7 @@ public class Helix {
      * recent follow first. This can return information like "who is lirik following," "who is following lirik," or "is
      * user X following user Y."
      *
-     * @param query A {@link QueryStringBuilder} query builder object.
+     * @param query A {@link QueryStringBuilder QueryStringBuilder} query builder object.
      *
      * @return UsersFollows
      *
@@ -237,12 +237,12 @@ public class Helix {
      *
      * @param videoIds Collection of no more than 100 video ID strings
      *
-     * @return GetVideosResource
+     * @return GetVideos
      *
-     * @see <a href="https://dev.twitch.tv/docs/api/reference#get-videos">Get Videos</a>
+     * @see <a href="https://dev.twitch.tv/docs/api/reference#get-videos">Get GetVideos</a>
      */
-    public GetVideosResource getVideos(Collection<String> videoIds) {
-        return new GetVideosResource(videoIds, getClientId(), getAppToken());
+    public GetVideos getVideos(Collection<String> videoIds) {
+        return new GetVideos(videoIds, getClientId(), getAppToken());
     }
 
     /**
@@ -251,12 +251,12 @@ public class Helix {
      * @param id     ID of a user or a game
      * @param idType <code>user</code> or <code>game</code>. The type of ID passed in the <code>id</code> param.
      *
-     * @return GetVideosResource
+     * @return GetVideos
      *
-     * @see <a href="https://dev.twitch.tv/docs/api/reference#get-videos">Get Videos</a>
+     * @see <a href="https://dev.twitch.tv/docs/api/reference#get-videos">Get GetVideos</a>
      */
-    public GetVideosResource getVideos(String id, String idType) {
-        return new GetVideosResource(id, idType, getClientId(), getAppToken());
+    public GetVideos getVideos(String id, String idType) {
+        return new GetVideos(id, idType, getClientId(), getAppToken());
     }
 
     private String getAppToken() {
