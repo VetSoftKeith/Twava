@@ -3,65 +3,61 @@ package us.vetsoft.twitch.helix.utilities;
 import java.util.Collection;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+/**
+ * Populates the data to be used to build the Query String.
+ */
 public class QueryStringBuilder {
-    private int first = 20;
-    private String after = "";
-    private String before = "";
-    private String type = "all";
-    private String fromId = "";
-    private String toId = "";
-    private Collection<String> userIds = new CopyOnWriteArrayList<>();
-    private Collection<String> userLogins = new CopyOnWriteArrayList<>();
-    private Collection<String> communityIds = new CopyOnWriteArrayList<>();
-    private Collection<String> gameIds = new CopyOnWriteArrayList<>();
-    private Collection<String> language = new CopyOnWriteArrayList<>();
+    int first = 20;
+    String after = "";
+    String id = "";
+    String before = "";
+    String type = "all";
+    String fromId = "";
+    String toId = "";
+    String bId = "";// Broadcaster ID
+    String manifestId = "";
+    Collection<String> userIds = new CopyOnWriteArrayList<>();
+    Collection<String> userLogins = new CopyOnWriteArrayList<>();
+    Collection<String> communityIds = new CopyOnWriteArrayList<>();
+    Collection<String> gameIds = new CopyOnWriteArrayList<>();
+    Collection<String> language = new CopyOnWriteArrayList<>();
 
-    private String getAfter() {
-        return after;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setManifestId(String manifestId) {
+        this.manifestId = manifestId;
+    }
+
+    public void setBroadcasterId(String broadcasterId) {
+        if (broadcasterId.isEmpty()) throw new IllegalArgumentException("The Broadcaster ID is a required field.");
+
+        this.bId = broadcasterId;
     }
 
     public void setAfter(String after) {
         this.after = after;
     }
 
-    private String getBefore() {
-        return before;
-    }
-
     public void setBefore(String before) {
         this.before = before;
-    }
-
-    private int getFirst() {
-        return first;
     }
 
     public void setFirst(int first) {
         this.first = first;
     }
 
-    private String getFromId() {
-        return fromId;
-    }
-
     public void setFromId(String fromId) {
         this.fromId = fromId;
-    }
-
-    private String getToId() {
-        return toId;
     }
 
     public void setToId(String toId) {
         this.toId = toId;
     }
 
-    private Collection<String> getUserIds() {
-        return userIds;
-    }
-
     public void setUserIds(Collection<String> userIds) {
-        if (!getUserLogins().isEmpty())
+        if (!this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
 
         if (userIds.size() > 100)
@@ -70,12 +66,8 @@ public class QueryStringBuilder {
         this.userIds = userIds;
     }
 
-    private Collection<String> getUserLogins() {
-        return userLogins;
-    }
-
     public void setUserLogins(Collection<String> userLogins) {
-        if (!getUserIds().isEmpty())
+        if (!this.userIds.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
 
         if (userLogins.size() > 100)
@@ -84,20 +76,12 @@ public class QueryStringBuilder {
         this.userLogins = userLogins;
     }
 
-    private String getType() {
-        return type;
-    }
-
     public void setType(String type) {
         this.type = type;
     }
 
-    private Collection<String> getCommunityIds() {
-        return communityIds;
-    }
-
     public void setCommunityIds(Collection<String> communityIds) {
-        if (!getGameIds().isEmpty() || !getLanguage().isEmpty() || !getUserIds().isEmpty() || !getUserLogins().isEmpty())
+        if (!this.gameIds.isEmpty() || !this.language.isEmpty() || !this.userIds.isEmpty() || !this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
 
         if (communityIds.size() > 100)
@@ -106,12 +90,8 @@ public class QueryStringBuilder {
         this.communityIds = communityIds;
     }
 
-    private Collection<String> getGameIds() {
-        return gameIds;
-    }
-
     public void setGameIds(Collection<String> gameIds) {
-        if (!getCommunityIds().isEmpty() || !getLanguage().isEmpty() || !getUserIds().isEmpty() || !getUserLogins().isEmpty())
+        if (!this.communityIds.isEmpty() || !this.language.isEmpty() || !this.userIds.isEmpty() || !this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
 
         if (gameIds.size() > 100)
@@ -120,12 +100,8 @@ public class QueryStringBuilder {
         this.gameIds = gameIds;
     }
 
-    private Collection<String> getLanguage() {
-        return language;
-    }
-
     public void setLanguage(Collection<String> language) {
-        if (!getGameIds().isEmpty() || !getCommunityIds().isEmpty() || !getUserIds().isEmpty() || !getUserLogins().isEmpty())
+        if (!this.gameIds.isEmpty() || !this.communityIds.isEmpty() || !this.userIds.isEmpty() || !this.userLogins.isEmpty())
             throw new IllegalStateException(Msg.MULTIPLE_COLLECTION_EXCEPTION.token());
 
         if (language.size() > 100)
@@ -134,7 +110,7 @@ public class QueryStringBuilder {
         this.language = language;
     }
 
-    public QueryStringBuilder build() {
-        return this;
+    public QueryString build() {
+        return new QueryString(this);
     }
 }
