@@ -57,16 +57,17 @@ public class QueryStringBuilder {
     }
 
     /**
+     * <p>
      * Sets the <code>user_id</code> variable given all tests are passed first.  You are able to pass only one of these
      * variable types at a time in a query string.
-     * <p>
-     * <list>
+     * </p>
+     * <ul>
      * <li><code>game_id</code></li>
      * <li><code>community_id</code></li>
      * <li><code>user_id</code></li>
      * <li><code>user_login</code></li>
      * <li><code>language</code></li>
-     * </list>
+     * </ul>
      *
      * @param userIds Collection of <code>user_id</code> to pass to the query string.
      */
@@ -81,16 +82,17 @@ public class QueryStringBuilder {
     }
 
     /**
+     * <p>
      * Sets the <code>user_login</code> variable given all tests are passed first.  You are able to pass only one of
      * these variable types at a time in a query string.
-     * <p>
-     * <list>
+     * </p>
+     * <ul>
      * <li><code>game_id</code></li>
      * <li><code>community_id</code></li>
      * <li><code>user_id</code></li>
      * <li><code>user_login</code></li>
      * <li><code>language</code></li>
-     * </list>
+     * </ul>
      *
      * @param userLogins Collection of <code>user_login</code> to pass to the query string.
      */
@@ -109,16 +111,17 @@ public class QueryStringBuilder {
     }
 
     /**
+     * <p>
      * Sets the <code>community_id</code> variable given all tests are passed first.  You are able to pass only one of
      * these variable types at a time in a query string.
-     * <p>
-     * <list>
+     * </p>
+     * <ul>
      * <li><code>game_id</code></li>
      * <li><code>community_id</code></li>
      * <li><code>user_id</code></li>
      * <li><code>user_login</code></li>
      * <li><code>language</code></li>
-     * </list>
+     * </ul>
      *
      * @param communityIds Collection of <code>community_id</code> to pass to the query string.
      */
@@ -133,16 +136,17 @@ public class QueryStringBuilder {
     }
 
     /**
+     * <p>
      * Sets the <code>game_id</code> variable given all tests are passed first.  You are able to pass only one of these
      * variable types at a time in a query string.
-     * <p>
-     * <list>
+     * </p>
+     * <ul>
      * <li><code>game_id</code></li>
      * <li><code>community_id</code></li>
      * <li><code>user_id</code></li>
      * <li><code>user_login</code></li>
      * <li><code>language</code></li>
-     * </list>
+     * </ul>
      *
      * @param gameIds Collection of <code>game_id</code> to pass to the query string.
      */
@@ -157,16 +161,17 @@ public class QueryStringBuilder {
     }
 
     /**
+     * <p>
      * Sets the <code>language</code> variable given all tests are passed first.  You are able to pass only one of these
      * variable types at a time in a query string.
-     * <p>
-     * <list>
+     * </p>
+     * <ul>
      * <li><code>game_id</code></li>
      * <li><code>community_id</code></li>
      * <li><code>user_id</code></li>
      * <li><code>user_login</code></li>
      * <li><code>language</code></li>
-     * </list>
+     * </ul>
      *
      * @param language Collection of <code>language</code> to pass in the query string.
      */
