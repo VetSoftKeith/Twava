@@ -43,30 +43,44 @@ public class HttpRequest {
                 .headers(createHeaders(getClientId(), getAppToken(), getUserToken()))
                 .build();
 
-        try (Response response = client.newCall(request).execute()) {
-
-            if (response.code() == 200) {
-                ResponseBody rBody = response.body();
-
-                // Return null if the response body is empty
-                if (null == rBody) {
-                    setBody(null);
-                } else {
-                    setBody(rBody.charStream());
-                }
-
-                setHeaders(response.headers().toMultimap());
+        // Leverage some async stuff bc speed and stuff
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                // TODO: SLF4J
+                call.cancel();
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            System.out.println(e);// TODO: SLF4J
-        } catch (NullPointerException npe) {
-            // Return NULL is the response body was empty
-            return null;
-        }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try (ResponseBody rBody = response.body()) {
+                    if (!response.isSuccessful()) throw new IOException("Query failed.");
+
+                    // Return null if the response body is empty
+                    if (null == rBody) {
+                        setBody(null);
+                    } else {
+                        setBody(rBody.charStream());
+                    }
+
+                    setHeaders(response.headers().toMultimap());
+                }
+            }
+        });
 
         return this;
     }
 
+    /**
+     * Creates the head {@link Headers Headers} object that is passed in the request.
+     *
+     * @param clientId The Client ID passed from the {@link us.vetsoft.twitch.helix.Helix Helix} object.
+     * @param appToken The (optional) application token passed from the {@link us.vetsoft.twitch.helix.Helix Helix} object.
+     * @param userToken the (optional) user token passed from the {@link us.vetsoft.twitch.helix.Helix Helix} object.
+     *
+     * @return OkHttp3 {@link Headers Headers} object.
+     */
     private Headers createHeaders(String clientId, String appToken, String userToken) {
         Headers.Builder hBuilder = new Headers.Builder();
 
