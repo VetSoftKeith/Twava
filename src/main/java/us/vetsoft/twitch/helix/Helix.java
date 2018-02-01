@@ -162,33 +162,33 @@ public class Helix {
      * <p>
      * This endpoint has a global rate limit, across all callers.
      *
-     * @param streamQuery A {@link QueryStringBuilder} query builder object.
+     * @param streamMetaQuery A {@link QueryStringBuilder} query builder object.
      *
      * @return GetStreamsMetadataResource
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-streams-metadata">Get Streams Metadata</a>
      */
-    public GetStreamsMetadataResource getStreamsMetadata(QueryStringBuilder streamQuery) {
-        return new GetStreamsMetadataResource(streamQuery, getClientId(), getAppToken());
+    public GetStreamsMetadataResource getStreamsMetadata(QueryStringBuilder streamMetaQuery) {
+        return new GetStreamsMetadataResource(streamMetaQuery, getClientId(), getAppToken());
     }
 
     /**
      * Gets games sorted by number of current viewers on Twitch, most popular first.
      *
-     * @param query A {@link QueryStringBuilder} query builder object.
+     * @param topGamesQuery A {@link QueryStringBuilder} query builder object.
      *
      * @return GetTopGamesResource
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-top-games">Get Top Games</a>
      */
-    public GetTopGamesResource getTopGames(QueryStringBuilder query) {
-        return new GetTopGamesResource(query, getClientId(), getAppToken());
+    public GetTopGamesResource getTopGames(QueryStringBuilder topGamesQuery) {
+        return new GetTopGamesResource(topGamesQuery, getClientId(), getAppToken());
     }
 
     /**
      * Gets information about one or more specified Twitch users. Users are identified by optional user IDs and/or login
      * name. If neither a user ID nor a login name is specified, the user is looked up by Bearer token.
-     * <p>
+     *
      * Optional scope: <code>user:read:email</code>. If this is provided, the response includes the user's email
      * address.
      *
@@ -209,12 +209,12 @@ public class Helix {
      *
      * @param query A {@link QueryStringBuilder} query builder object.
      *
-     * @return GetUsersFollowsResource
+     * @return UsersFollows
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-users-follows">Get Users Follows</a>
      */
-    public GetUsersFollowsResource getUsersFollows(QueryStringBuilder query) {
-        return new GetUsersFollowsResource(query, getClientId(), getAppToken());
+    public UsersFollows getUsersFollows(QueryStringBuilder query) {
+        return new UsersFollows(query, getClientId(), getAppToken());
     }
 
     /**
