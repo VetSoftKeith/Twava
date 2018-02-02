@@ -15,6 +15,9 @@ public class Hearthstone {
     @Expose
     private HearthstoneOpponent hearthstoneOpponent;
 
+    /**
+     * @return Hearthstone metadata about the broadcaster.
+     */
     public HearthstoneBroadcaster getBroadcaster() {
         return broadcaster;
     }
@@ -28,6 +31,9 @@ public class Hearthstone {
         return this;
     }
 
+    /**
+     * @return Hearthstone metadata about the opponent
+     */
     public HearthstoneOpponent getOpponent() {
         return hearthstoneOpponent;
     }

@@ -12,6 +12,9 @@ public class HearthstoneOpponent {
     @Expose
     private HearthstoneOpponentHero hero;
 
+    /**
+     * @return Metadata about the Hearthstone hero selected by the opponent. null if empty.
+     */
     public HearthstoneOpponentHero getHero() {
         return hero;
     }

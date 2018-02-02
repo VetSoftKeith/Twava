@@ -12,11 +12,18 @@ public class Datum {
     @Expose
     private String url;
 
+    /**
+     * <b>Note:</b> You must replace all occurrences of <code>\\u0026</code> with an ampersand (<code>&amp;</code>)
+     * character. See the Drops Guide.
+     *
+     * @return The URL where you will upload the manifest file. This is the URL of a pre-signed S3 bucket. Lease time:
+     * 15 minutes.
+     */
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    private void setUrl(String url) {
         this.url = url;
     }
 

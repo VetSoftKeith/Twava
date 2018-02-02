@@ -21,11 +21,14 @@ public class Datum {
     @Expose
     private Hearthstone hearthstone;
 
+    /**
+     * @return User ID of the streamer (broadcaster).
+     */
     public String getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    private void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -34,11 +37,15 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return ID of the game being played on the stream: 488552 (Overwatch), 138585 (Hearthstone), or null (neither
+     * Overwatch nor Hearthstone metadata is available).
+     */
     public String getGameId() {
         return gameId;
     }
 
-    public void setGameId(String gameId) {
+    private void setGameId(String gameId) {
         this.gameId = gameId;
     }
 
@@ -47,11 +54,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Object containing the Overwatch metadata, if available; otherwise, null.
+     */
     public Overwatch getOverwatch() {
         return overwatch;
     }
 
-    public void setOverwatch(Overwatch overwatch) {
+    private void setOverwatch(Overwatch overwatch) {
         this.overwatch = overwatch;
     }
 
@@ -60,11 +70,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Object containing the Hearthstone metadata, if available; otherwise, null.
+     */
     public Hearthstone getHearthstone() {
         return hearthstone;
     }
 
-    public void setHearthstone(Hearthstone hearthstone) {
+    private void setHearthstone(Hearthstone hearthstone) {
         this.hearthstone = hearthstone;
     }
 

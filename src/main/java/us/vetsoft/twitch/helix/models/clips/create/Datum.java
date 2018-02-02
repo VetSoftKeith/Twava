@@ -15,11 +15,14 @@ public class Datum {
     @Expose
     private String editUrl;
 
+    /**
+     * @return ID of the clip that was created.
+     */
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -28,11 +31,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return URL of the edit page for the clip.
+     */
     public String getEditUrl() {
         return editUrl;
     }
 
-    public void setEditUrl(String editUrl) {
+    private void setEditUrl(String editUrl) {
         this.editUrl = editUrl;
     }
 

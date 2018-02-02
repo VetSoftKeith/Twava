@@ -12,11 +12,14 @@ public class HearthstoneBroadcaster {
     @Expose
     private HearthstoneBroadcasterHero hero;
 
+    /**
+     * @return Metadata about the Hearthstone hero selected by the broadcaster. null if empty.
+     */
     public HearthstoneBroadcasterHero getHero() {
         return hero;
     }
 
-    public void setHero(HearthstoneBroadcasterHero hero) {
+    private void setHero(HearthstoneBroadcasterHero hero) {
         this.hero = hero;
     }
 

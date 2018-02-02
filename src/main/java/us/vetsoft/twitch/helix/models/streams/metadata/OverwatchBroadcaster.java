@@ -12,6 +12,9 @@ public class OverwatchBroadcaster {
     @Expose
     private OverwatchHero overwatchHero;
 
+    /**
+     * @return Metadata about the Overwatch hero selected by the broadcaster. null if empty.
+     */
     public OverwatchHero getHero() {
         return overwatchHero;
     }

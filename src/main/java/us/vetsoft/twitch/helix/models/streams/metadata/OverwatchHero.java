@@ -18,11 +18,14 @@ public class OverwatchHero {
     @Expose
     private String ability;
 
+    /**
+     * @return Role of the Overwatch hero.
+     */
     public String getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    private void setRole(String role) {
         this.role = role;
     }
 
@@ -31,11 +34,14 @@ public class OverwatchHero {
         return this;
     }
 
+    /**
+     * @return Name of the Overwatch hero.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -44,11 +50,14 @@ public class OverwatchHero {
         return this;
     }
 
+    /**
+     * @return Ability being used by the broadcaster.
+     */
     public String getAbility() {
         return ability;
     }
 
-    public void setAbility(String ability) {
+    private void setAbility(String ability) {
         this.ability = ability;
     }
 

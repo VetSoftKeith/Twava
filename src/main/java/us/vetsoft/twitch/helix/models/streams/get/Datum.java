@@ -42,11 +42,14 @@ public class Datum {
     @Expose
     private String thumbnailUrl;
 
+    /**
+     * @return Stream ID.
+     */
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -55,11 +58,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return ID of the user who is streaming.
+     */
     public String getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    private void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -68,11 +74,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return ID of the game being played on the stream.
+     */
     public String getGameId() {
         return gameId;
     }
 
-    public void setGameId(String gameId) {
+    private void setGameId(String gameId) {
         this.gameId = gameId;
     }
 
@@ -81,11 +90,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Array of community IDs.
+     */
     public List<String> getCommunityIds() {
         return communityIds;
     }
 
-    public void setCommunityIds(List<String> communityIds) {
+    private void setCommunityIds(List<String> communityIds) {
         this.communityIds = communityIds;
     }
 
@@ -94,11 +106,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Stream type: <code>"live"</code>, <code>"rerun"</code>, <code>"premiere"</code>, or <code>""</code>.
+     */
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
+    private void setType(String type) {
         this.type = type;
     }
 
@@ -107,11 +122,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Stream title.
+     */
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    private void setTitle(String title) {
         this.title = title;
     }
 
@@ -120,11 +138,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Number of viewers watching the stream at the time of the query.
+     */
     public Integer getViewerCount() {
         return viewerCount;
     }
 
-    public void setViewerCount(Integer viewerCount) {
+    private void setViewerCount(Integer viewerCount) {
         this.viewerCount = viewerCount;
     }
 
@@ -133,11 +154,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return UTC timestamp.
+     */
     public String getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(String startedAt) {
+    private void setStartedAt(String startedAt) {
         this.startedAt = startedAt;
     }
 
@@ -146,11 +170,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Stream language.
+     */
     public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    private void setLanguage(String language) {
         this.language = language;
     }
 
@@ -159,11 +186,17 @@ public class Datum {
         return this;
     }
 
+    /**
+     * All image URLs have variable width and height. You can replace <code>{width}</code> and <code>{height}</code>
+     * with any values to get that size image
+     *
+     * @return Thumbnail URL of the stream.
+     */
     public String getThumbnailUrl() {
         return thumbnailUrl;
     }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
+    private void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
 

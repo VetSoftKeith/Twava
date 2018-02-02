@@ -45,11 +45,14 @@ public class Datum {
     @Expose
     private String thumbnailUrl;
 
+    /**
+     * @return ID of the clip being queried.
+     */
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -58,11 +61,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return URL where the clip can be viewed.
+     */
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url) {
+    private void setUrl(String url) {
         this.url = url;
     }
 
@@ -71,11 +77,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return URL to embed the clip.
+     */
     public String getEmbedUrl() {
         return embedUrl;
     }
 
-    public void setEmbedUrl(String embedUrl) {
+    private void setEmbedUrl(String embedUrl) {
         this.embedUrl = embedUrl;
     }
 
@@ -84,11 +93,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return User ID of the stream from which the clip was created.
+     */
     public String getBroadcasterId() {
         return broadcasterId;
     }
 
-    public void setBroadcasterId(String broadcasterId) {
+    private void setBroadcasterId(String broadcasterId) {
         this.broadcasterId = broadcasterId;
     }
 
@@ -97,11 +109,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return ID of the user who created the clip.
+     */
     public String getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(String creatorId) {
+    private void setCreatorId(String creatorId) {
         this.creatorId = creatorId;
     }
 
@@ -110,11 +125,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return ID of the video from which the clip was created.
+     */
     public String getVideoId() {
         return videoId;
     }
 
-    public void setVideoId(String videoId) {
+    private void setVideoId(String videoId) {
         this.videoId = videoId;
     }
 
@@ -123,11 +141,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return ID of the game assigned to the stream when the clip was created.
+     */
     public String getGameId() {
         return gameId;
     }
 
-    public void setGameId(String gameId) {
+    private void setGameId(String gameId) {
         this.gameId = gameId;
     }
 
@@ -136,11 +157,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Language of the stream from which the clip was created.
+     */
     public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(String language) {
+    private void setLanguage(String language) {
         this.language = language;
     }
 
@@ -149,11 +173,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Title of the clip.
+     */
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    private void setTitle(String title) {
         this.title = title;
     }
 
@@ -162,11 +189,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Number of times the clip has been viewed.
+     */
     public Integer getViewCount() {
         return viewCount;
     }
 
-    public void setViewCount(Integer viewCount) {
+    private void setViewCount(Integer viewCount) {
         this.viewCount = viewCount;
     }
 
@@ -175,11 +205,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Date when the clip was created.
+     */
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    private void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -188,11 +221,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return URL of the clip thumbnail.
+     */
     public String getThumbnailUrl() {
         return thumbnailUrl;
     }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
+    private void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
 

@@ -12,11 +12,14 @@ public class Pagination {
     @Expose
     private String cursor;
 
+    /**
+     * @return The pagination cursor
+     */
     public String getCursor() {
         return cursor;
     }
 
-    public void setCursor(String cursor) {
+    private void setCursor(String cursor) {
         this.cursor = cursor;
     }
 

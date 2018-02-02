@@ -18,11 +18,14 @@ public class HearthstoneBroadcasterHero {
     @Expose
     private String name;
 
+    /**
+     * @return Type of Hearthstone hero.
+     */
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
+    private void setType(String type) {
         this.type = type;
     }
 
@@ -31,11 +34,14 @@ public class HearthstoneBroadcasterHero {
         return this;
     }
 
+    /**
+     * @return Class of the Hearthstone hero.
+     */
     public String getHeroClass() {
         return heroClass;
     }
 
-    public void setHeroClass(String heroClass) {
+    private void setHeroClass(String heroClass) {
         this.heroClass = heroClass;
     }
 
@@ -44,11 +50,14 @@ public class HearthstoneBroadcasterHero {
         return this;
     }
 
+    /**
+     * @return Name of the Hearthstone hero.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 

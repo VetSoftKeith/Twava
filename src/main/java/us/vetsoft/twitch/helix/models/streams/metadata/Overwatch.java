@@ -12,6 +12,9 @@ public class Overwatch {
     @Expose
     private OverwatchBroadcaster overwatchBroadcaster;
 
+    /**
+     * @return Overwatch metadata about the broadcaster.
+     */
     public OverwatchBroadcaster getOverwatchBroadcaster() {
         return overwatchBroadcaster;
     }

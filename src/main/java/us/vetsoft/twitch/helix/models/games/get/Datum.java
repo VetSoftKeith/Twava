@@ -18,11 +18,14 @@ public class Datum {
     @Expose
     private String boxArtUrl;
 
+    /**
+     * @return Game ID.
+     */
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -31,11 +34,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Game name.
+     */
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -44,11 +50,14 @@ public class Datum {
         return this;
     }
 
+    /**
+     * @return Template URL for the game’s box art.
+     */
     public String getBoxArtUrl() {
         return boxArtUrl;
     }
 
-    public void setBoxArtUrl(String boxArtUrl) {
+    private void setBoxArtUrl(String boxArtUrl) {
         this.boxArtUrl = boxArtUrl;
     }
 
