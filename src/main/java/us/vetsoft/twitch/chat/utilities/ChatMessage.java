@@ -1,60 +1,53 @@
 package us.vetsoft.twitch.chat.utilities;
 
+import us.vetsoft.twitch.chat.utilities.enums.EnumHelper;
+import us.vetsoft.twitch.chat.utilities.enums.UserType;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class ChatMessage {
 
-	private String badges;
+	private List<String> badges;
 	private String bits;
 	private String color;
 	private String displayName;
 	private String emotes;
 	private String id;
 	private String message;
-	private String mod;
+	private boolean mod;
 	private String channel;
 	private String timestamp;
 	private boolean turbo;
 	private String userID;
 	private UserType userType;
+	private String roomID;
+	private boolean isSub;
 	private String rawLine;
 	private Map<String, String> tags;
 
 	public ChatMessage(Map<String, String> tags, String channel, String message, String rawLine)  {
-		this.badges = tags.get("badges");
+		this.badges = Arrays.asList(tags.get("badges").split(","));
 		this.bits = tags.get("bits");
 		this.color = tags.get("color");
 		this.displayName = tags.get("display-name");
 		this.emotes = tags.get("emotes");
 		this.id = tags.get("id");
 		this.message = message;
-		this.mod = tags.get("mod");
+		this.mod = tags.get("mod").equals("1");
 		this.channel = channel;
 		this.timestamp = tags.get("tmi-sent-ts");
 		this.turbo = tags.get("turbo").equals("1");
 		this.userID = tags.get("user-id");
-		switch(tags.get("user-type")) {
-			case "empty":
-				this.userType = UserType.EMPTY;
-				break;
-			case "mod":
-				this.userType = UserType.MOD;
-				break;
-			case "global_mod":
-				this.userType = UserType.GLOBAL_MOD;
-				break;
-			case "admin":
-				this.userType = UserType.ADMIN;
-				break;
-			case "staff":
-				this.userType = UserType.STAFF;
-				break;
-		}
+		this.roomID = tags.get("room-id");
+		this.isSub = tags.get("subscriber").equals("1");
+		this.userType = EnumHelper.getUserTypeFromString(tags.get("user-type"));
 		this.rawLine = rawLine;
 		this.tags = tags;
 	}
 
-	public String getBadges() {
+	public List<String> getBadges() {
 		return badges;
 	}
 
@@ -82,7 +75,7 @@ public class ChatMessage {
 		return message;
 	}
 
-	public String getMod() {
+	public boolean isMod() {
 		return mod;
 	}
 
@@ -94,7 +87,7 @@ public class ChatMessage {
 		return timestamp;
 	}
 
-	public boolean getTurbo() {
+	public boolean isTurbo() {
 		return turbo;
 	}
 
@@ -112,5 +105,13 @@ public class ChatMessage {
 
 	public Map<String, String> getTags() {
 		return tags;
+	}
+
+	public String getRoomID() {
+		return roomID;
+	}
+
+	public boolean isSub() {
+		return isSub;
 	}
 }

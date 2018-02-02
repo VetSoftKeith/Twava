@@ -27,10 +27,10 @@ public class ChatThread extends Thread {
 			while ((line = reader.readLine()) != null) {
 				if(line.contains("JOIN")) {
 					String finalLine = line;
-					listeners.forEach(listener -> listener.onJoin(new JoinEvent(ChatParser.parseJoin(finalLine))));
+					listeners.forEach(listener -> listener.onJoin(new JoinEvent(ChatParser.parseJoinPart(finalLine))));
 				} else if(line.contains("PART")) {
 					String finalLine = line;
-					listeners.forEach(listener -> listener.onPart(new PartEvent()));
+					listeners.forEach(listener -> listener.onPart(new PartEvent(ChatParser.parseJoinPart(finalLine))));
 				} else if(line.contains("PRIVMSG")) {
 					String finalLine = line;
 					listeners.forEach(listener -> listener.onPrivMsg(new PrivMsgEvent(ChatParser.parsePrivMessage(finalLine))));
@@ -48,22 +48,21 @@ public class ChatThread extends Thread {
 					listeners.forEach(listener -> listener.onGlobalUserState(new GlobalUserStateEvent(ChatParser.parsePrivMessage(finalLine))));
 				} else if(line.contains("ROOMSTATE")) {
 					String finalLine = line;
-					listeners.forEach(listener -> listener.onRoomstate(new RoomstateEvent()));
+					listeners.forEach(listener -> listener.onRoomstate(new RoomstateEvent(ChatParser.parseRoomstate(finalLine))));
 				} else if(line.contains("USERNOTICE")) {
 					String finalLine = line;
-					listeners.forEach(listener -> listener.onUserNotice(new UserNoticeEvent()));
+					listeners.forEach(listener -> listener.onUserNotice(new UserNoticeEvent(ChatParser.parsePrivMessage(finalLine))));
 				} else if(line.contains("USERSTATE")) {
 					String finalLine = line;
-					listeners.forEach(listener -> listener.onUserState(new UserStateEvent()));
+					listeners.forEach(listener -> listener.onUserState(new UserStateEvent(ChatParser.parseRoomstate(finalLine))));
 				} else if(line.contains("HOSTTARGET")) {
 					String finalLine = line;
 					listeners.forEach(listener -> listener.onHostTarget(new HostTargetEvent(ChatParser.parseHostTarget(finalLine))));
 				} else if(line.contains("NOTICE")) {
 					String finalLine = line;
-					listeners.forEach(listener -> listener.onNotice(new NoticeEvent()));
+					listeners.forEach(listener -> listener.onNotice(new NoticeEvent(ChatParser.parsePrivMessage(finalLine))));
 				} else if(line.contains("RECONNECT")) {
-					String finalLine = line;
-					listeners.forEach(listener -> listener.onReconnect(new ReconnectEvent()));
+					listeners.forEach(listener -> listener.onReconnect(new ReconnectEvent(System.currentTimeMillis())));
 				}
 			}
 		} catch(IOException ignored) {}

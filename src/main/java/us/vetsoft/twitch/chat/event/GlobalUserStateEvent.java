@@ -1,7 +1,7 @@
 package us.vetsoft.twitch.chat.event;
 
 import us.vetsoft.twitch.chat.utilities.ChatMessage;
-import us.vetsoft.twitch.chat.utilities.UserType;
+import us.vetsoft.twitch.chat.utilities.enums.UserType;
 
 public class GlobalUserStateEvent {
 
@@ -21,7 +21,7 @@ public class GlobalUserStateEvent {
 		color = message.getColor();
 		displayName = message.getDisplayName();
 		emoteSets = message.getTags().get("emote-sets");
-		hasTurbo = message.getTurbo();
+		hasTurbo = message.isTurbo();
 		uuid = message.getUserID();
 		userType = message.getUserType();
 	}
