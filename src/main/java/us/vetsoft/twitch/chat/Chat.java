@@ -38,7 +38,7 @@ public class Chat {
 	}
 
 	public void connect() throws IOException {
-		sendServerMessage("PASS", OAUTH);
+		//sendServerMessage("PASS", OAUTH);
 		sendServerMessage("NICK", NICK);
 
 		sendServerMessage("CAP REQ", ":twitch.tv/membership");
@@ -46,15 +46,19 @@ public class Chat {
 		sendServerMessage("CAP REQ", ":twitch.tv/commands");
 
 		String line;
-		while((line = reader.readLine()) != null ){
-			if(line.contains("004")) break;
+		boolean running = true;
+		while((line = reader.readLine()) != null && running){
+			System.out.println("< " + line);
+			if(line.contains("004")) running = false;
 		}
 
 		if(!CHANNELS.isEmpty()) {
 			CHANNELS.forEach(this::joinChannel);
+		} else {
+			System.out.println("No channels to join");
 		}
 
-		ChatThread thread = new ChatThread(LISTENERS, reader);
+		ChatThread thread = new ChatThread(LISTENERS, writer, reader);
 		thread.run();
 	}
 
@@ -74,6 +78,7 @@ public class Chat {
 	}
 
 	private void sendServerMessage(String command, String message){
+		System.out.println(String.format("> %s %s", command, message));
 		try {
 			writer.write(String.format("%s %s\r\n", command, message));
 			writer.flush();

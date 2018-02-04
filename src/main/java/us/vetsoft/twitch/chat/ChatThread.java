@@ -5,17 +5,20 @@ import us.vetsoft.twitch.chat.utilities.ChatParser;
 import us.vetsoft.twitch.chat.utilities.IChatListener;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.List;
 
 public class ChatThread extends Thread {
 
 	private BufferedReader reader;
+	private BufferedWriter writer;
 	private List<IChatListener> listeners;
 
-	public ChatThread(List<IChatListener> listeners, BufferedReader reader) {
+	public ChatThread(List<IChatListener> listeners, BufferedWriter writer, BufferedReader reader) {
 		this.listeners = listeners;
 		this.reader = reader;
+		this.writer = writer;
 	}
 
 	@Override
@@ -25,7 +28,14 @@ public class ChatThread extends Thread {
 		try {
 			String line;
 			while ((line = reader.readLine()) != null) {
-				if(line.contains("JOIN")) {
+				if(line.contains("PING")) {
+					try {
+						writer.write("PONG :tmi.twitch.tv");
+						writer.flush();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				} else if(line.contains("JOIN")) {
 					String finalLine = line;
 					listeners.forEach(listener -> listener.onJoin(new JoinEvent(ChatParser.parseJoinPart(finalLine))));
 				} else if(line.contains("PART")) {

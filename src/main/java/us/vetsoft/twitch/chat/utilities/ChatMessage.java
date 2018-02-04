@@ -25,23 +25,25 @@ public class ChatMessage {
 	private String roomID;
 	private boolean isSub;
 	private String rawLine;
+	private boolean mercury;
 	private Map<String, String> tags;
 
 	public ChatMessage(Map<String, String> tags, String channel, String message, String rawLine)  {
-		this.badges = Arrays.asList(tags.get("badges").split(","));
+		if(tags.containsKey("badges")) this.badges = Arrays.asList(tags.get("badges").split(","));
 		this.bits = tags.get("bits");
 		this.color = tags.get("color");
 		this.displayName = tags.get("display-name");
 		this.emotes = tags.get("emotes");
 		this.id = tags.get("id");
-		this.message = message;
-		this.mod = tags.get("mod").equals("1");
+		this.message = message.startsWith(":")? message.substring(1) : message;
+		if(tags.containsKey("mod")) this.mod = tags.get("mod").equals("1");
 		this.channel = channel;
 		this.timestamp = tags.get("tmi-sent-ts");
-		this.turbo = tags.get("turbo").equals("1");
+		if(tags.containsKey("turbo")) this.turbo = tags.get("turbo").equals("1");
 		this.userID = tags.get("user-id");
 		this.roomID = tags.get("room-id");
-		this.isSub = tags.get("subscriber").equals("1");
+		if(tags.containsKey("subscriber")) this.isSub = tags.get("subscriber").equals("1");
+		if(tags.containsKey("mercury")) this.mercury = tags.get("mercury").equals("1");
 		this.userType = EnumHelper.getUserTypeFromString(tags.get("user-type"));
 		this.rawLine = rawLine;
 		this.tags = tags;
@@ -113,5 +115,9 @@ public class ChatMessage {
 
 	public boolean isSub() {
 		return isSub;
+	}
+
+	public boolean isMercury() {
+		return mercury;
 	}
 }

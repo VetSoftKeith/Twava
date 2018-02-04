@@ -12,7 +12,7 @@ public class ChatParser {
 
 		String[] tagArray = tags.split(";");
 		Map<String, String> tagMap = new HashMap<>();
-		Arrays.asList(tagArray).forEach(tag -> tagMap.put(tag.split("=")[0], tag.split("=")[1]));
+		Arrays.asList(tagArray).forEach(tag -> tagMap.put(tag.split("=")[0], tag.split("=").length == 2? tag.split("=")[1] : null));
 		return new ChatMessage(tagMap, channel, message, rawLine);
 	}
 
@@ -59,7 +59,7 @@ public class ChatParser {
 		String tags = parts[0];
 		String[] tagArray = tags.split(";");
 		Map<String, String> tagMap = new HashMap<>();
-		Arrays.asList(tagArray).forEach(tag -> tagMap.put(tag.split("=")[0], tag.split("=")[1]));
+		Arrays.asList(tagArray).forEach(tag -> tagMap.put(tag.split("=")[0], tag.split("=").length == 2? tag.split("=")[1] : null));
 		return new ChatMessage(tagMap, parts[3], null, rawLine);
 	}
 }
