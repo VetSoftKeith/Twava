@@ -52,12 +52,12 @@ public class Helix {
      *
      * @param broadcasterId ID of the stream from which the clip will be made.
      *
-     * @return CreateClipResource The response object from creating the clip.
+     * @return CreateClip The response object from creating the clip.
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#create-clip">Create Clip</a>
      */
-    public CreateClipResource createClip(String broadcasterId) {
-        return new CreateClipResource(broadcasterId, getClientId(), getUserToken());
+    public CreateClip createClip(String broadcasterId) {
+        return new CreateClip(broadcasterId, getClientId(), getUserToken());
     }
 
     /**
@@ -194,12 +194,12 @@ public class Helix {
      *
      * @param query A {@link QueryStringBuilder QueryStringBuilder} query builder object.
      *
-     * @return GetUsersResource
+     * @return GetUsers
      *
      * @see <a href="https://dev.twitch.tv/docs/api/reference#get-users">Get Users</a>
      */
-    public GetUsersResource getUsers(QueryStringBuilder query) {
-        return new GetUsersResource(query, getClientId(), getAppToken(), getUserToken());
+    public GetUsers getUsers(QueryStringBuilder query) {
+        return new GetUsers(query, getClientId(), getAppToken(), getUserToken());
     }
 
     /**
